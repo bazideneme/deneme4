@@ -21,6 +21,5 @@ echo "  ▀▀══╝ ";
 echo "  ██╗   ";
 echo "  ╚═╝   ";
 echo "        ";
- 
 clear
 done
