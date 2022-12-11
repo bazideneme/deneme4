@@ -1,5 +1,5 @@
 mkfifo pipe
-( cat pipe | perl -We 'use Time::HiRes;$|++;while(read(STDIN,$c,1)){Time::HiRes::usleep(5000);print $c;}' )& exec &> pipe
+( cat pipe | perl -We 'use Time::HiRes;$|++;while(read(STDIN,$c,1)){Time::HiRes::usleep(3000);print $c;}' )& exec &> pipe
 
 clear
 
