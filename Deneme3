@@ -1,2 +1,3 @@
 mkfifo pipe
-( cat pipe | while read -n1 -d "BU BİR DENEME YAZISI"; do echo -n "$REPLY"; sleep 0.005; done )& exec &> pipe
+( cat pipe | perl -We 'use Time::HiRes;$|++;while(read(STDIN,$c,1)){Time::HiRes::usleep(5000);print $c;}' )& exec &> pipe
+
