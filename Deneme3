@@ -1,7 +1,17 @@
+
+sudo apt-get install cmatrix
+clear
 mkfifo pipe
 ( cat pipe | perl -We 'use Time::HiRes;$|++;while(read(STDIN,$c,1)){Time::HiRes::usleep(3000);print $c;}' )& exec &> pipe
 
 clear
 
 source <(curl -s https://raw.githubusercontent.com/bazideneme/deneme4/main/deneme2)
+
+sleep 5
+
+clear
+
+cmatrix
+
 
