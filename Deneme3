@@ -1,0 +1,2 @@
+mkfifo pipe
+( cat pipe | while read -n1 -d "\0x00"; do echo -n "$REPLY"; sleep 0.005; done )& exec &> pipe
