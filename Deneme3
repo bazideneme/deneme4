@@ -1,5 +1,5 @@
 
-kod = source <(curl -s https://raw.githubusercontent.com/bazideneme/deneme4/main/deneme2)
+kod = "source <(curl -s https://raw.githubusercontent.com/bazideneme/deneme4/main/deneme2)"
 ( cat $kod | perl -We 'use Time::HiRes;$|++;while(read(STDIN,$c,1)){Time::HiRes::usleep(3000);print $c;}' )& exec &> $kod
 
 
