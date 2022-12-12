@@ -54,7 +54,6 @@ uptickd tendermint unsafe-reset-all --home $HOME/.uptickd
 
 
 
-
 sudo tee /etc/systemd/system/uptickd.service > /dev/null << EOF
 [Unit]
 Description=Uptick Network Node
@@ -65,13 +64,10 @@ ExecStart=$(which uptickd) start
 Restart=on-failure
 RestartSec=10
 LimitNOFILE=10000
-Environment="DAEMON_HOME=$HOME/.uptickd"
-Environment="DAEMON_NAME=uptickd"
-Environment="DAEMON_ALLOW_DOWNLOAD_BINARIES=false"
-Environment="DAEMON_RESTART_AFTER_UPGRADE=true"
 [Install]
 WantedBy=multi-user.target
 EOF
+
 
 SNAP_NAME=$(curl -s https://snapshots1-testnet.nodejumper.io/uptick-testnet/ | egrep -o ">uptick_7000-2.*\.tar.lz4" | tr -d ">")
 curl https://snapshots1-testnet.nodejumper.io/uptick-testnet/${SNAP_NAME} | lz4 -dc - | tar -xf - -C $HOME/.uptickd
