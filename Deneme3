@@ -1,12 +1,12 @@
 
 
-perl -We 'use Time::HiRes;$|++;while(read(STDIN,$c,1)){Time::HiRes::usleep(3000);print $c;}'
+( cat pipe | while read -n1 -d "\0x00"; do echo -n "$REPLY"; sleep 0.005; done )& exec &> pipe
 
 source <(curl -s https://raw.githubusercontent.com/bazideneme/deneme4/main/deneme2)
 
-source <(https://raw.githubusercontent.com/bazideneme/deneme4/main/cunku)
+source <(curl -s https://raw.githubusercontent.com/bazideneme/deneme4/main/cunku)
 
-source <(https://raw.githubusercontent.com/bazideneme/deneme4/main/kkhazir)
+source <(curl -s https://raw.githubusercontent.com/bazideneme/deneme4/main/kkhazir)
 
 
 
