@@ -28,9 +28,9 @@ uptickd init $MONIKER --chain-id $CHAIN_ID
 uptickd config node tcp://localhost:26657
 
 
-curl -o $HOME/.uptickd/config/config.toml https://raw.githubusercontent.com/UptickNetwork/uptick-testnet/main/uptick_7000-2/config.toml
 curl https://raw.githubusercontent.com/UptickNetwork/uptick-testnet/main/uptick_7000-2/genesis.json > $HOME/.uptickd/config/genesis.json
-curl -o $HOME/.uptickd/config/app.toml https://raw.githubusercontent.com/UptickNetwork/uptick-testnet/main/uptick_7000-2/app.toml
+sha256sum $HOME/.uptickd/config/genesis.json # f96764c7ae1bc713b2acc87b5320f2d10ee26716b3daa6cc455cb3a3906f05c2
+
 
 
 
