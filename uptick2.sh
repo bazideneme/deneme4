@@ -73,6 +73,8 @@ Environment="DAEMON_RESTART_AFTER_UPGRADE=true"
 WantedBy=multi-user.target
 EOF
 
+SNAP_NAME=$(curl -s https://snapshots1-testnet.nodejumper.io/uptick-testnet/ | egrep -o ">uptick_7000-2.*\.tar.lz4" | tr -d ">")
+curl https://snapshots1-testnet.nodejumper.io/uptick-testnet/${SNAP_NAME} | lz4 -dc - | tar -xf - -C $HOME/.uptickd
 
 
 sudo systemctl daemon-reload
