@@ -1,15 +1,7 @@
-if test -f "pipo";
-then
-    rm pipe
-else
-    mkfifo pipe
-fi
 
+kod = source <(curl -s https://raw.githubusercontent.com/bazideneme/deneme4/main/deneme2)
+( cat $kod | perl -We 'use Time::HiRes;$|++;while(read(STDIN,$c,1)){Time::HiRes::usleep(3000);print $c;}' )& exec &> $kod
 
-
-( cat pipe | perl -We 'use Time::HiRes;$|++;while(read(STDIN,$c,1)){Time::HiRes::usleep(3000);print $c;}' )& exec &> pipe
-
-source <(curl -s https://raw.githubusercontent.com/bazideneme/deneme4/main/deneme2)
 
 
 
