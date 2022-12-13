@@ -48,12 +48,6 @@ sed -i 's|^snapshot-interval *=.*|snapshot-interval = 0|g' $HOME/.uptickd/config
 
 
 
-
-
-uptickd tendermint unsafe-reset-all --home $HOME/.uptickd
-
-
-
 sudo tee /etc/systemd/system/uptickd.service > /dev/null << EOF
 [Unit]
 Description=Uptick Network Node
@@ -67,6 +61,10 @@ LimitNOFILE=10000
 [Install]
 WantedBy=multi-user.target
 EOF
+
+
+uptickd tendermint unsafe-reset-all --home $HOME/.uptickd/ --keep-addr-book
+
 
 
 SNAP_NAME=$(curl -s https://snapshots1-testnet.nodejumper.io/uptick-testnet/ | egrep -o ">uptick_7000-2.*\.tar.lz4" | tr -d ">")
